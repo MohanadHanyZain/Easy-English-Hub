@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Story – EnglishFlow</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="home.html">← Back to Dashboard</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="content-section">
+      <img id="story-img" src="" alt="Story" style="width:100%; max-height:300px; object-fit:cover; border-radius:12px; margin-bottom:1.5rem;">
+      <h2 id="story-title">Loading Story...</h2>
+      <div id="story-content"></div>
+      <audio id="story-audio" controls style="margin-top:1rem; width:100%;"></audio>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const storyId = urlParams.get('id');
+
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          const story = data.stories.find(s => s.id === storyId);
+          if (!story) {
+            document.getElementById('story-title').textContent = 'Story Not Found';
+            return;
+          }
+
+          document.getElementById('story-img').src = story.image;
+          document.getElementById('story-title').textContent = story.title;
+          document.getElementById('story-content').textContent = story.content;
+          
+          const audioEl = document.getElementById('story-audio');
+          if (story.audioUrl) {
+            audioEl.src = story.audioUrl;
+          } else {
+            audioEl.remove();
+          }
+        });
+    });
+  </script>
+</body>
+</html>

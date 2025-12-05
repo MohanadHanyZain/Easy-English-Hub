@@ -1,0 +1,60 @@
+{
+  "levels": [
+    {
+      "id": "A1",
+      "title": "Level A1 – Beginner",
+      "description": "Start your journey with basic phrases and vocabulary.",
+      "image": "/assets/images/placeholder.jpg",
+      "courses": [
+        {
+          "id": "a1_course_1",
+          "title": "Greetings & Introductions",
+          "description": "Learn how to say hello and introduce yourself.",
+          "image": "/assets/images/placeholder.jpg",
+          "lessons": [
+            {
+              "id": "a1_lesson_1",
+              "title": "Hello!",
+              "description": "Learn common greetings in English.",
+              "image": "/assets/images/placeholder.jpg",
+              "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+              "testUrl": "test.html?id=a1_lesson_1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "title": "Level A2 – Elementary",
+      "description": "Expand your daily conversation skills.",
+      "image": "/assets/images/placeholder.jpg",
+      "courses": []
+    }
+  ],
+  "stories": [
+    {
+      "id": "story_1",
+      "title": "The Lost Cat",
+      "image": "/assets/images/placeholder.jpg",
+      "content": "One sunny morning, Anna looked outside and couldn’t find her cat, Whiskers. She walked around the neighborhood calling his name...",
+      "audioUrl": "/assets/audio/word.mp3"
+    }
+  ],
+  "flashcards": {
+    "A1": [
+      {
+        "word": "Hello",
+        "translation": "Hola",
+        "image": "/assets/images/placeholder.jpg",
+        "audioUrl": "/assets/audio/word.mp3"
+      },
+      {
+        "word": "Goodbye",
+        "translation": "Adiós",
+        "image": "/assets/images/placeholder.jpg",
+        "audioUrl": "/assets/audio/word.mp3"
+      }
+    ]
+  }
+}

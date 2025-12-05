@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Level – EnglishFlow</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="home.html">← Back to Dashboard</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 id="level-title">Loading...</h2>
+    <div id="courses-container" class="level-grid">
+      <!-- Courses loaded by JS -->
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const levelId = urlParams.get('level');
+
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          const level = data.levels.find(l => l.id === levelId);
+          if (!level) {
+            document.getElementById('level-title').textContent = 'Level Not Found';
+            return;
+          }
+          document.getElementById('level-title').textContent = level.title;
+
+          const container = document.getElementById('courses-container');
+          container.innerHTML = level.courses.map(course => `
+            <div class="card">
+              <img src="${course.image}" class="card-img">
+              <div class="card-body">
+                <h3>${course.title}</h3>
+                <p>${course.description}</p>
+                <a href="course.html?id=${course.id}" class="btn">Start Course</a>
+              </div>
+            </div>
+          `).join('');
+        });
+    });
+  </script>
+</body>
+</html>
