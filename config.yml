@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "data"
+    label: "Site Data"
+    file: "data.json"
+    format: "json"
+    fields:
+      - { label: "Levels", name: "levels", widget: "list", fields: [
+          { label: "ID", name: "id", widget: "string" },
+          { label: "Title", name: "title", widget: "string" },
+          { label: "Description", name: "description", widget: "text" },
+          { label: "Image", name: "image", widget: "image" },
+          { label: "Courses", name: "courses", widget: "list", fields: [
+              { label: "ID", name: "id", widget: "string" },
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "text" },
+              { label: "Image", name: "image", widget: "image" },
+              { label: "Lessons", name: "lessons", widget: "list", fields: [
+                  { label: "ID", name: "id", widget: "string" },
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "text" },
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Video URL", name: "videoUrl", widget: "string" },
+                  { label: "Test URL", name: "testUrl", widget: "string" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+      - label: "Stories"
+        name: "stories"
+        widget: "list"
+        fields:
+          - { label: "ID", name: "id", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Content", name: "content", widget: "text" }
+          - { label: "Audio URL", name: "audioUrl", widget: "string" }
+      - label: "Flashcards"
+        name: "flashcards"
+        widget: "object"
+        fields:
+          - label: "A1 Flashcards"
+            name: "A1"
+            widget: "list"
+            fields:
+              - { label: "Word", name: "word", widget: "string" }
+              - { label: "Translation", name: "translation", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Audio URL", name: "audioUrl", widget: "string" }
